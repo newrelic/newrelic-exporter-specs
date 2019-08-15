@@ -25,9 +25,6 @@ The detailed description of how the [New Relic Micrometer Registry](https://gith
 converts [Micrometer metrics](https://micrometer.io/) into New Relic dimensional metrics
 can be found in the [micrometer] directory. 
 
-### Licensing
-The contents of this repository are licensed under the Apache 2.0 License.
-
 ### Contributing
 Full details are available in our [CONTRIBUTING.md] file. 
 
@@ -36,3 +33,6 @@ Keep in mind when you submit your pull request, you'll need to sign the CLA via 
 You only have to sign the CLA one time per project.
 To execute our corporate CLA, which is required if your contribution is on behalf of a company, or if you have any questions, 
 please drop us an email at open-source@newrelic.com. 
+
+### Licensing
+The contents of this repository are licensed under the Apache 2.0 License.
