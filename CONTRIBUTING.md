@@ -27,7 +27,9 @@ If you believe you have found a security vulnerability in this project or any of
 Before we can accept a pull request, you must sign our [Contributor Licensing Agreement](#contributor-license-agreement-cla), if you have not already done so. This grants us the right to use your code under the same Apache 2.0 license as we use for this project in general.
 
 ## Coding Style Guidelines
-All the documentation in the project should consist of valid Markdown.
+The documentation in this repository uses GitHub Flavored Markdown (see: https://github.github.com/gfm/).  All contributions to markdown files in this repository must be valid markdown.  
+It is highly recommended to wrap long lines in markdown files at 80 characters.  
+Before submitting a pull request, please verify that your contributions render correctly in your own fork.  
 
 ## License
 By contributing to the Exporter Specs, you agree that your contributions will be licensed under the [License file](LICENSE) 
