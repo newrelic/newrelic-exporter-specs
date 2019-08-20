@@ -6,13 +6,13 @@ Thanks for your interest in contributing to the the Exporter specs! We look forw
 * Read our [Code of Conduct](CODE_OF_CONDUCT.md)
 * Submit a [pull request](#pull-request-guidelines) or [issue](#filing-issues--bug-reports). For pull requests, please also:
     * Sign the [Contributor Licensing Agreement](#contributor-license-agreement-cla), if you haven't already done so. (You will be prompted if we don't have a signed CLA already recorded.)
-    
+
 ## How to Get Help or Ask Questions
 Do you have questions or are you experiencing unexpected behaviors after modifying this Open Source Software? Please engage with the “Build on New Relic” space in the [Explorers Hub](https://discuss.newrelic.com/c/build-on-new-relic/Open-Source-Agents-SDKs), New Relic’s Forum. Posts are publicly viewable by anyone, please do not include PII or sensitive information in your forum post.
 
 ## Contributor License Agreement ("CLA")
-We'd love to get your contributions to improve Telemetry SDK! Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using [CLA-Assistant](https://cla-asisstant.io). You only have to sign the CLA one time per project.
-To execute our corporate CLA, which is required if your contribution is on behalf of a company, or if you have any questions, please drop us an email at open-source@newrelic.com. 
+We'd love to get your contributions to improve our Exporter Specs! Keep in mind when you submit your pull request, you'll need to sign the CLA via the click-through using [CLA-Assistant](https://cla-asisstant.io). You only have to sign the CLA one time per project.
+To execute our corporate CLA, which is required if your contribution is on behalf of a company, or if you have any questions, please drop us an email at open-source@newrelic.com.
 
 ## Filing Issues & Bug Reports
 We use GitHub issues to track public issues and bugs. If possible, please provide a link to an example app or gist that reproduces the issue. When filing an issue, please ensure your description is clear and includes the following information.
@@ -32,5 +32,5 @@ It is highly recommended to wrap long lines in markdown files at 80 characters.
 Before submitting a pull request, please verify that your contributions render correctly in your own fork.  
 
 ## License
-By contributing to the Exporter Specs, you agree that your contributions will be licensed under the [License file](LICENSE) 
+By contributing to the Exporter Specs, you agree that your contributions will be licensed under the [License file](LICENSE)
 in the root directory of this source tree.
