@@ -23,8 +23,8 @@ Here is how the New Relic registry converts each of these types:
 We export the micrometer `Gauge` as a New Relic `Gauge`.
 
 Attributes:
-* base_unit: (the gauge's base unit from the id)
-* source_type: "gauge"
+* baseUnit: (the gauge's base unit from the id)
+* source.type: "gauge"
 * description: (the gauge's description)
 
 # TimeGauge
@@ -32,8 +32,8 @@ Attributes:
 We export the micrometer `TimeGauge` as a New Relic `Gauge`.
 
 Attributes:
-* base_unit: (the gauge's base unit from the id)
-* source_type: "time_gauge"
+* baseUnit: (the gauge's base unit from the id)
+* source.type: "time_gauge"
 * description: (the gauge's description)
 
 # Counter
@@ -43,8 +43,8 @@ We export the micrometer `Counter` as a New Relic `Count`.
 * value - delta between current count and previous count (should always be positive)
 
 Attributes:
-* base_unit: (the counter's base unit from the id)
-* source_type: "counter"
+* baseUnit: (the counter's base unit from the id)
+* source.type: "counter"
 * description: (the counter's description)
 
 # DistributionSummary
@@ -55,18 +55,18 @@ We take a snapshot and marshall it as:
 
 * Snapshot `Count`
   * name: "&lt;name>.count"
-  * source_type: `distribution_summary`
+  * source.type: `distribution_summary`
 * Snapshot max `Gauge` (for maximum event duration)
   * name: "&lt;name>.max"
-  * source_type: `distribution_summary`
+  * source.type: `distribution_summary`
 * Snapshot total `Gauge` (for total event durations)
   * name: "&lt;name>.total"
-  * source_type: `distribution_summary`
+  * source.type: `distribution_summary`
 
 We also generate one `Gauge` per snapshot percentile:
 * name: "&lt;name>.percentiles"
-* source_type: `distribution_summary`
-* percentile: (the actual percentage number)
+* source.type: `distribution_summary`
+* newRelic.percentile: (the actual percentage number)
 
 The framework also generates a `Gauge` for each histogram bucket.
 
@@ -75,8 +75,8 @@ The framework also generates a `Gauge` for each histogram bucket.
 The `FunctionCounter` is converted to a New Relic `Count` object.
 
 Attributes:
-* base_unit: (the function counter's base unit from the id)
-* source_type: "function_counter"
+* baseUnit: (the function counter's base unit from the id)
+* source.type: "function_counter"
 * description: (the function counter's description)
 
 
@@ -109,8 +109,8 @@ We export it as a `Count` and 3 gauges:
 * value = the maximum time of a single event
 
 All have 4 metrics have these attributes:
-  * source_type: "timer"
-  * base_time_unit: (the timer's base time unit)
+  * source.type: "timer"
+  * baseTimeUnit: (the timer's base time unit)
   * description: (the timer's description)
 
 The framework also generates a `Gauge` for each histogram bucket.
@@ -135,8 +135,8 @@ We export it a `Count` and 2 gauges:
 * value = the average/mean of all events
 
 All have 3 metrics have these attributes:
-  * source_type: "function_timer"
-  * base_time_unit: (the timer's base time unit)
+  * source.type: "function_timer"
+  * baseTimeUnit: (the timer's base time unit)
   * description: (the timer's description)
 
 ## LongTaskTimer
@@ -156,7 +156,7 @@ We export it as a two gauges:
 * value - The cumulative duration of all active tasks in nanoseconds
 
 Both metrics have these attributes:
-* source_type: "long_task_timer"
-* base_unit: (the timer's base unit from the id)
-* base_time_unit: hard coded to "NANOSECONDS"
+* source.type: "long_task_timer"
+* baseUnit: (the timer's base unit from the id)
+* baseTimeUnit: hard coded to "NANOSECONDS"
 * description: (the timer's description)
