@@ -30,7 +30,7 @@ represents, you would call that attribute `newRelic.percentile`.
   For example, if you are generating a set of gauges that represent a histogram, you would suffix the customer-provided metric name with "`.buckets`".
 
 ### Common patterns:
-* All metric names SHOULD be start with the customer-provided metric name that the metric library provides to the exporter.
+ * All metric names SHOULD start with the customer-provided metric name that the metric library provides to the exporter.
 * All metrics that share a common name MUST also have at least one variable attribute, so they can be independently aggregated by the back end.
 * Any time a “compound metric”, or a metric that is mapped in a non-obvious way is produced, an attribute “source.type” SHOULD be added to all the metrics that comprise the compound metric.
   This identifies for the consumer of the metrics what the original type of metric was called in the source library.
