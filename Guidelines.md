@@ -35,7 +35,8 @@ represents, you might call that attribute `histogram.bucket`.
 * Any time a “compound metric”, or a metric that is mapped in a non-obvious way is produced, an attribute “source.type” SHOULD be added to all the metrics that comprise the compound metric.
   This identifies for the consumer of the metrics what the original type of metric was called in the source library.
 * All generated metrics should include an attribute `instrumentation.provider` which identifies the source of the telemetry (for example, "dropwizard" or "prometheus")
-* All generated metrics should include an attribute `instrumentation.name` which identifies the library that is generating the telemetry (for example, "newrelic-dropwizard-metrics" or "newrelic-prometheus-exporter")
+* All generated metrics should include (if applicable) an attribute `instrumentation.name` which identifies what is being instrumented. (for example, "spring-framework" or "python-twisted")
+* All generated metrics should include an attribute `collector.name`, which identifies the particular exporter in question (for example, "newrelic-dropwizard-reporter", or "newrelic-opentelemetry-exporter")
 
 ### Simple types modeled with a single New Relic metric:
 #### Cumulative Counter
