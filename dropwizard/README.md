@@ -45,7 +45,7 @@ and `"source.type" : "histogram"`:
 * A Count metric, representing the total number of samples that have been added to the Histogram since its creation. 
 The value of the Count is the change in the number of samples since the last reporting period happened.
 * A set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9
-  * On each of these, we add an attribute `"newRelic.percentile"` with the decimal value of what is being measured (eg. 99.9)
+  * On each of these, we add an attribute `"percentile"` with the decimal value of what is being measured (eg. 99.9)
   * On the 50% gauge, we also add an attribute `"commonName": "median"`
   * On all these Gauges, we also add an attribute `"groupingAs": "percentiles"`, to inform future visualizations.
 * A Summary metric which summarizes the state of the histogram at the report time.
@@ -85,6 +85,6 @@ The value of the Count is the change in the number of events since the last repo
   * The 5-minute moving average rate, with attribute `"rate": "m5_rate"`
   * The 15-minute moving average rate, with attribute `"rate": "m15_rate"`
 * A Set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9, all of which have an attribute `"groupingAs": "percentiles"`
-  * On each of these, we add an attribute `"newRelic.percentile"` with the decimal value of what is being measured (eg. 99.9)
+  * On each of these, we add an attribute `"percentile"` with the decimal value of what is being measured (eg. 99.9)
   * On the 50% gauge, we also add an attribute `"commonName": "median"`
 * A Summary metric which summarizes the state of the underlying histogram at the report time.
