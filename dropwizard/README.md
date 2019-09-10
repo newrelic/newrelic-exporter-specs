@@ -47,7 +47,7 @@ The value of the Count is the change in the number of samples since the last rep
 * A set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9
   * On each of these, we add an attribute `"percentile"` with the decimal value of what is being measured (eg. 99.9)
   * On the 50% gauge, we also add an attribute `"commonName": "median"`
-  * On all these Gauges, we also add an attribute `"groupingAs": "percentiles"`, to inform future visualizations.
+  * On all these Gauges, we also add a `"percentiles"` suffix to the gauge name, to inform future visualizations.
 * A Summary metric which summarizes the state of the histogram at the report time.
 
 *Note*: The Histogram is configurable with a variety of sampling strategies. 
@@ -64,7 +64,7 @@ We model this as a Count, and 4 Gauge metrics, all with the same `"name"`, which
 and `"source.type" : "meter"`:
 * A Count metric, representing the total number of events that have been seen by the meter, over its lifetime
 The value of the Count is the change in the number of samples since the last reporting period happened.
-* 4 Gauge metrics, all of which have an attribute `"groupingAs": "rates"`
+* 4 Gauge metrics:
   * The mean rate, with attribute `"rate": "mean_rate"`
   * The 1-minute moving average rate, with attribute `"rate": "m1_rate"`
   * The 5-minute moving average rate, with attribute `"rate": "m5_rate"`
@@ -79,12 +79,13 @@ We model a Timer with a Count, 4 Gauges for the Meter, and 6 Gauges for the unde
 All of these have a `"name"` set to the name of the Timer, and `"source.type" : "timer"`:
 * A Count metric, representing the total number of events that have been timed by the Timer, over its lifetime
 The value of the Count is the change in the number of events since the last reporting period happened.
-* 4 Gauge metrics, all of which have an attribute `"groupingAs": "rates"`
+* 4 Gauge metrics:
   * The mean rate, with attribute `"rate": "mean_rate"`
   * The 1-minute moving average rate, with attribute `"rate": "m1_rate"`
   * The 5-minute moving average rate, with attribute `"rate": "m5_rate"`
   * The 15-minute moving average rate, with attribute `"rate": "m15_rate"`
-* A Set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9, all of which have an attribute `"groupingAs": "percentiles"`
+* A Set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9
+  * The name of each gauge will include a `".percentile"` suffix.
   * On each of these, we add an attribute `"percentile"` with the decimal value of what is being measured (eg. 99.9)
   * On the 50% gauge, we also add an attribute `"commonName": "median"`
 * A Summary metric which summarizes the state of the underlying histogram at the report time.
