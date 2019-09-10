@@ -108,7 +108,7 @@ We export it as a `Count` and 3 gauges:
 * name = "&lt;name>.max", 
 * value = the maximum time of a single event
 
-All have 4 metrics have these attributes:
+All 4 metrics have these attributes:
   * source.type: "timer"
   * baseTimeUnit: (the timer's base time unit)
   * description: (the timer's description)
@@ -134,7 +134,7 @@ We export it a `Count` and 2 gauges:
 * name = "&lt;name>.mean", 
 * value = the average/mean of all events
 
-All have 3 metrics have these attributes:
+All 3 metrics have these attributes:
   * source.type: "function_timer"
   * baseTimeUnit: (the timer's base time unit)
   * description: (the timer's description)
