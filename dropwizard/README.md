@@ -34,20 +34,20 @@ Because it can be decremented, we cannot model this as a New Relic Count metric,
 
 We model a DropWizard Counter as a New Relic Gauge that passes through the current value as-is (i.e. we don't create a delta-count of this value).
 
-The `"name"` of the Gauge matches the name of the Counter, and set `"sourceType" : "counter"`
+The `"name"` of the Gauge matches the name of the Counter, and set `"source.type" : "counter"`
 
 #### Histogram
 A DropWizard Histogram is not a classic evenly bucketed histogram, but is actually a block of percentiles. 
 Since New Relic does not currently have a native percentile type, we instead have to model this as a set of other metrics.
 
 A DropWizard Histogram is converted to the following, all with the same `"name"`, which is set to the name of the Histogram,
-and `"sourceType" : "histogram"`:
+and `"source.type" : "histogram"`:
 * A Count metric, representing the total number of samples that have been added to the Histogram since its creation. 
 The value of the Count is the change in the number of samples since the last reporting period happened.
 * A set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9
   * On each of these, we add an attribute `"percentile"` with the decimal value of what is being measured (eg. 99.9)
   * On the 50% gauge, we also add an attribute `"commonName": "median"`
-  * On all these Gauges, we also add an attribute `"groupingAs": "percentiles"`, to inform future visualizations.
+  * On all these Gauges, we also add a `"percentiles"` suffix to the gauge name, to inform future visualizations.
 * A Summary metric which summarizes the state of the histogram at the report time.
 
 *Note*: The Histogram is configurable with a variety of sampling strategies. 
@@ -61,10 +61,10 @@ Second, it provides a set of average rates. One is the mean rate over the lifeti
 The others are the 1, 5 and 15 minute moving averages of the rates.
 
 We model this as a Count, and 4 Gauge metrics, all with the same `"name"`, which is set to the name of the Meter,
-and `"sourceType" : "meter"`:
+and `"source.type" : "meter"`:
 * A Count metric, representing the total number of events that have been seen by the meter, over its lifetime
 The value of the Count is the change in the number of samples since the last reporting period happened.
-* 4 Gauge metrics, all of which have an attribute `"groupingAs": "rates"`
+* 4 Gauge metrics:
   * The mean rate, with attribute `"rate": "mean_rate"`
   * The 1-minute moving average rate, with attribute `"rate": "m1_rate"`
   * The 5-minute moving average rate, with attribute `"rate": "m5_rate"`
@@ -76,15 +76,16 @@ A DropWizard Timer is used to time things. Under the hood, it is implemented as 
 Because this metric is a composite of other types, we model it as such, using the same kind of New Relic Metric types as above. 
 
 We model a Timer with a Count, 4 Gauges for the Meter, and 6 Gauges for the underlying Histogram.
-All of these have a `"name"` set to the name of the Timer, and `"sourceType" : "timer"`:
+All of these have a `"name"` set to the name of the Timer, and `"source.type" : "timer"`:
 * A Count metric, representing the total number of events that have been timed by the Timer, over its lifetime
 The value of the Count is the change in the number of events since the last reporting period happened.
-* 4 Gauge metrics, all of which have an attribute `"groupingAs": "rates"`
+* 4 Gauge metrics:
   * The mean rate, with attribute `"rate": "mean_rate"`
   * The 1-minute moving average rate, with attribute `"rate": "m1_rate"`
   * The 5-minute moving average rate, with attribute `"rate": "m5_rate"`
   * The 15-minute moving average rate, with attribute `"rate": "m15_rate"`
-* A Set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9, all of which have an attribute `"groupingAs": "percentiles"`
+* A Set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9
+  * The name of each gauge will include a `".percentile"` suffix.
   * On each of these, we add an attribute `"percentile"` with the decimal value of what is being measured (eg. 99.9)
   * On the 50% gauge, we also add an attribute `"commonName": "median"`
 * A Summary metric which summarizes the state of the underlying histogram at the report time.
