@@ -66,7 +66,7 @@ We take a snapshot and marshall it as:
 We also generate one `Gauge` per snapshot percentile:
 * name: "&lt;name>.percentiles"
 * source.type: `distribution_summary`
-* newRelic.percentile: (the actual percentage number)
+* percentile: (the actual percentage number)
 
 The framework also generates a `Gauge` for each histogram bucket.
 
