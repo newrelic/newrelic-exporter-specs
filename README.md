@@ -9,7 +9,7 @@ will rely on our open-source SDKs to do the work of sending the data to New Reli
 ### Intent
 This documentation is divided into two sections, with two different intents. Documentation at the top level of this project
 is generally intended to be _prescriptive_. If you are designing an exporter, we strongly recommend following
-the [Guidelines.md](Guidelines.md), as it will interoperability between the metrics exported from various metric libraries. 
+the [Guidelines.md](Guidelines.md), as it will support interoperability between the metrics exported from various metric libraries. 
 The documentation in the subdirectories, of the specific exporters, however, 
 are intended to be purely _descriptive_. They should reflect exactly what the current version of the exporter 
 actually does, even if it doesn't exactly follow the guidelines. 
