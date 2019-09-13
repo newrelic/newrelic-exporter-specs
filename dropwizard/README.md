@@ -34,14 +34,13 @@ Because it can be decremented, we cannot model this as a New Relic Count metric,
 
 We model a DropWizard Counter as a New Relic Gauge that passes through the current value as-is (i.e. we don't create a delta-count of this value).
 
-The `"name"` of the Gauge matches the name of the Counter, and set `"source.type" : "counter"`
+The `"name"` of the Gauge matches the name of the Counter.
 
 #### Histogram
 A DropWizard Histogram is not a classic evenly bucketed histogram, but is actually a block of percentiles. 
 Since New Relic does not currently have a native percentile type, we instead have to model this as a set of other metrics.
 
-A DropWizard Histogram is converted to the following, all with the same `"name"`, which is set to the name of the Histogram,
-and `"source.type" : "histogram"`:
+A DropWizard Histogram is converted to the following, all with the same `"name"`, which is set to the name of the Histogram:
 * A Count metric, representing the total number of samples that have been added to the Histogram since its creation. 
 The value of the Count is the change in the number of samples since the last reporting period happened.
 * A set of Gauge metrics, one per standard percentile: 50, 75, 90, 95, 99, 99.9
@@ -60,8 +59,7 @@ First, it provides the count of the total number of events that have been seen.
 Second, it provides a set of average rates. One is the mean rate over the lifetime of the meter. 
 The others are the 1, 5 and 15 minute moving averages of the rates.
 
-We model this as a Count, and 4 Gauge metrics, all with the same `"name"`, which is set to the name of the Meter,
-and `"source.type" : "meter"`:
+We model this as a Count, and 4 Gauge metrics, all with the same `"name"`, which is set to the name of the Meter:
 * A Count metric, representing the total number of events that have been seen by the meter, over its lifetime
 The value of the Count is the change in the number of samples since the last reporting period happened.
 * 4 Gauge metrics:
@@ -76,7 +74,7 @@ A DropWizard Timer is used to time things. Under the hood, it is implemented as 
 Because this metric is a composite of other types, we model it as such, using the same kind of New Relic Metric types as above. 
 
 We model a Timer with a Count, 4 Gauges for the Meter, and 6 Gauges for the underlying Histogram.
-All of these have a `"name"` set to the name of the Timer, and `"source.type" : "timer"`:
+All of these have a `"name"` set to the name of the Timer:
 * A Count metric, representing the total number of events that have been timed by the Timer, over its lifetime
 The value of the Count is the change in the number of events since the last reporting period happened.
 * 4 Gauge metrics:
