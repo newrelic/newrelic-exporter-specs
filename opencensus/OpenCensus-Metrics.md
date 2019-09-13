@@ -24,7 +24,6 @@ Include these attributes for each metric in addition to creating one for each Op
 |-----|-----|-----|
 |`measure.name`|string|The name of the OpenCensus Measure used by the View|
 |`measure.unit`|string|The unit of the OpenCensus Measure used by the View|
-|`source.type`|string|The type of the OpenCensus aggregation used by the View; one of `Count`, `LastValue`, `Sum`, or `Distribution`|
 
 At this time, we will not be adding any common attributes, however we must allow for our users to be able to do so. These attributes must be defined by the user when creating their Exporter and will be added to the `common` block of each metrics post to New Relic.
 
@@ -138,8 +137,7 @@ New Relic Metric
       "attributes": {
         "username": "sally",
         "measure.name": "latency",
-        "measure.unit": "ms",
-        "source.type": "Count"
+        "measure.unit": "ms"
       }
     }
   ]
@@ -207,8 +205,7 @@ New Relic Metric
       "attributes": {
         "environment": "prod",
         "measure.name": "memory",
-        "measure.unit": "bytes",
-        "source.type": "LastValue"
+        "measure.unit": "bytes"
       }
     }
   ]
@@ -311,8 +308,7 @@ New Relic Metric
       "attributes": {
         "username": "sally",
         "measure.name": "logins",
-        "measure.unit": "logins",
-        "source.type": "Sum"
+        "measure.unit": "logins"
       }
     }
   ]
@@ -449,8 +445,7 @@ New Relic Metrics
       "attributes": {
         "endpoint": "index",
         "measure.name": "latency",
-        "measure.unit": "ms",
-        "source.type": "Distribution"
+        "measure.unit": "ms"
       }
     },
     {
@@ -463,7 +458,6 @@ New Relic Metrics
         "endpoint": "index",
         "measure.name": "latency",
         "measure.unit": "ms",
-        "source.type": "Distribution",
         "lower_bound": "-Inf",
         "upper_bound": "1"
       }
@@ -478,7 +472,6 @@ New Relic Metrics
         "endpoint": "index",
         "measure.name": "latency",
         "measure.unit": "ms",
-        "source.type": "Distribution",
         "lower_bound": "1",
         "upper_bound": "5"
       }
@@ -493,7 +486,6 @@ New Relic Metrics
         "endpoint": "index",
         "measure.name": "latency",
         "measure.unit": "ms",
-        "source.type": "Distribution",
         "lower_bound": "5",
         "upper_bound": "10"
       }
@@ -508,7 +500,6 @@ New Relic Metrics
         "endpoint": "index",
         "measure.name": "latency",
         "measure.unit": "ms",
-        "source.type": "Distribution",
         "lower_bound": "10",
         "upper_bound": "Inf"
       }
