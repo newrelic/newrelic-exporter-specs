@@ -46,6 +46,9 @@ represents, you might call that attribute `histogram.bucket`.
 
 ### Quantization metrics:
 #### Histograms
+
+##### **** Important: Histogram specifications are still a work-in-progress. We strongly recommend that you do not implement histogram exports at this time. **** 
+
 Often libraries will provide a [histogram](https://en.wikipedia.org/wiki/Histogram) data type to represent distributions of metric values as bucketed data.
 
 When exporting this metric type the following guidelines MUST be followed.
