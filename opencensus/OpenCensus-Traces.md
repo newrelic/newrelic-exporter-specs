@@ -1,4 +1,4 @@
-<!-- # OpenCensus Trace Exporters -->
+# OpenCensus Trace Exporters
 
 ## Exporting Spans
 
@@ -6,15 +6,15 @@ Each span received by the OpenCensus Exporter must be transformed into a New Rel
 
 |NR Span Field|OpenCensus Span Field|Type|Required|Comments|
 |-----|-----|-----|-----|-----|
-|`guid`|`Span.SpanID`|string|yes|Unique identifier for this span|
-|`traceId`|`Span.SpanContext.TraceID`|string|yes|Unique identifier shared by all spans within a single trace|
+|`id`|`Span.SpanID`|string|yes|Unique identifier for this span|
+|`trace.id`|`Span.SpanContext.TraceID`|string|yes|Unique identifier shared by all spans within a single trace|
 |`name`|`Span.Name`|string|yes|The name of this span|
-|`parentId`|`Span.ParentSpanID`|string|yes (except root span)|The span id of the previous caller of this span. Can be empty if this is the first span in which case the key should be omitted.|
+|`parent.id`|`Span.ParentSpanID`|string|yes (except root span)|The span id of the previous caller of this span. Can be empty if this is the first span in which case the key should be omitted.|
 |`timestamp`|`Span.StartTime`|long|yes|Epoch ms timestamp|
-|`durationMs`|`Span.EndTime` - `Span.StartTime`|float|yes|Duration of this span in milliseconds|
-|`entityName`|(none)|string|yes| The name of the service that created this span. This value is not gathered from OpenCensus. Instead it should be set directly by the user when defining the Exporter.|
-|`tags`|`Span.Attributes`|map|no|Map of user specified "tags" on this span. Keys are strings, values can be any of bool, long, float, or string. Key should be omitted if empty.|
-|`tags.error`|`Span.Status.Code` not in `IgnoreStatusCodes` list and is not 0|bool|no|When `Span.Stats.Code` is not `0` and is not in the `IgnoreStatusCodes` list, include the value `"error": true` in the `tags` map. If an `error` tag was already set by the user, do not override it.|
+|`duration.ms`|`Span.EndTime` - `Span.StartTime`|float|yes|Duration of this span in milliseconds|
+|`service.name`|(none)|string|yes| The name of the service that created this span. This value is not gathered from OpenCensus. Instead it should be set directly by the user when defining the Exporter.|
+|`attributes`|`Span.Attributes`|map|no|Map of user specified "tags" on this span. Keys are strings, values can be any of bool, long, float, or string. Key should be omitted if empty.|
+|`attributes.error`|`Span.Status.Code` not in `IgnoreStatusCodes` list and is not 0|bool|no|When `Span.Stats.Code` is not `0` and is not in the `IgnoreStatusCodes` list, include the value `"error": true` in the `tags` map. If an `error` tag was already set by the user, do not override it.|
 
 ## Configuration
 
