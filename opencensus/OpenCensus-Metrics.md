@@ -383,14 +383,6 @@ for i in range(len(buckets):
 previous_values = current_values
 ```
 
-#### Queries
-
-To see a line chart with a line for each bucket use this NRQL query:
-
-```sql
-NRQL> SELECT average(MyDistribution) FROM Metric TIMESERIES FACET 'upper_bound'
-```
-
 #### Example
 
 Previous Distribution
