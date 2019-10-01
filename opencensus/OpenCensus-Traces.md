@@ -14,7 +14,8 @@ Each span received by the OpenCensus Exporter must be transformed into a New Rel
 |`duration.ms`|`Span.EndTime` - `Span.StartTime`|float|yes|Duration of this span in milliseconds|
 |`service.name`|(none)|string|yes| The name of the service that created this span. This value is not gathered from OpenCensus. Instead it should be set directly by the user when defining the Exporter.|
 |`attributes`|`Span.Attributes`|map|no|Map of user specified "tags" on this span. Keys are strings, values can be any of bool, long, float, or string. Key should be omitted if empty.|
-|`attributes.error`|`Span.Status.Code` not in `IgnoreStatusCodes` list and is not 0|bool|no|When `Span.Stats.Code` is not `0` and is not in the `IgnoreStatusCodes` list, include the value `"error": true` in the `tags` map. If an `error` tag was already set by the user, do not override it.|
+|`attributes.error`|`Span.Status.Code` not in `IgnoreStatusCodes` list and is not 0|bool|no|When `Span.Stats.Code` is not `0` and is not in the `IgnoreStatusCodes` list, include the value `"error": true` in the `attributes` map. If an `error` attribute was already set by the user, do not override it.|
+|`attributes.error.message`|`Span.Status.Message`|string|no|When the above `attributes.error` is `true`, include `"error.message"` in the `attributes` map. If an `error.message` attribute was already set by the user, do not override it.|
 
 ## Configuration
 
