@@ -1,4 +1,4 @@
-<!-- # OpenCensus Metric Exporters -->
+# OpenCensus Metric Exporters
 
 |OpenCensus Aggregation Type|New Relic Metric Type|How to translate|
 |-----|-----|-----|
@@ -46,6 +46,16 @@ If for some reason metrics are exported out of order, drop and do not record the
 These metrics represent the count of the total occurrences of the metric since recording began. Comparison must be done on these metrics before sending.
 
 These metrics must be translated to New Relic's Count metric type. To record them, take the current value of the CountData metric and subtract from it the previous value of the CountData metric. If this is the first time this metric is seen, use its total value. All delta values greater than or equal to zero must be sent.
+
+#### Querying
+
+To see a line chart detailing the count of `MyCount` use this NRQL query:
+
+```sql
+NRQL> SELECT sum(MyCount) FROM Metric TIMESERIES
+```
+
+![count-chart](imgs/count.png)
 
 #### Example
 
@@ -150,6 +160,22 @@ These metrics represent the last recorded value of the metric. OpenCensus will d
 
 These metrics must be translated to New Relic's Gauge metric type. To record them, take the current value of the LastValueData metric and set it as the value of the New Relic Gauge metric.
 
+#### Queries
+
+To see a line chart detailing the last recorded value of `MyLastValue` for each timeslice use this NRQL query:
+
+```sql
+NRQL> SELECT latest(MyLastValue) FROM Metric TIMESERIES
+```
+
+![last-value-chart](imgs/lastvalue.png)
+
+To see a line chart detailing the average value recorded of `MyLastValue` over each timeslice use this NRQL query:
+
+```sql
+NRQL> SELECT average(MyLastValue) FROM Metric TIMESERIES
+```
+
 #### Example
 
 Current Last Value
@@ -217,6 +243,22 @@ New Relic Metric
 These metrics represent the total sum of all values recorded since recording began. Comparison must be done on these metrics before sending.
 
 These metrics must be translated to New Relic's Count metric type. To record them, take the current value of the SumData metric and subtract from it the previous value of the SumData metric. If this is the first time this metric is seen, use its total value. All delta values greater than or equal to zero must be sent.
+
+#### Queries
+
+To see a line chart detailing the sum of all the values of `MySum` over each timeslice use this NRQL query:
+
+```sql
+NRQL> SELECT sum(MySum) FROM Metric TIMESERIES
+```
+
+To see a line chart detailing the average of all values of the `MyCount` and `MySum` metrics which share a common OpenCensus measure, use this NRQL query:
+
+```sql
+NRQL> SELECT sum(MySum) / sum(MyCount) FROM Metric TIMESERIES
+```
+
+![sum-chart](imgs/sum.png)
 
 #### Example
 
