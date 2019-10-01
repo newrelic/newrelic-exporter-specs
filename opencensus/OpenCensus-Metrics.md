@@ -52,7 +52,7 @@ These metrics must be translated to New Relic's Count metric type. To record the
 To see a line chart detailing the count of `MyCount` use this NRQL query:
 
 ```sql
-NRQL> SELECT sum(MyCount) FROM Metric TIMESERIES AUTO
+NRQL> SELECT sum(MyCount) FROM Metric TIMESERIES
 ```
 
 ![count-chart](imgs/count.png)
@@ -165,7 +165,7 @@ These metrics must be translated to New Relic's Gauge metric type. To record the
 To see a line chart detailing the last recorded value of `MyLastValue` for each timeslice use this NRQL query:
 
 ```sql
-NRQL> SELECT latest(MyLastValue) FROM Metric TIMESERIES AUTO
+NRQL> SELECT latest(MyLastValue) FROM Metric TIMESERIES
 ```
 
 ![last-value-chart](imgs/lastvalue.png)
@@ -173,7 +173,7 @@ NRQL> SELECT latest(MyLastValue) FROM Metric TIMESERIES AUTO
 To see a line chart detailing the average value recorded of `MyLastValue` over each timeslice use this NRQL query:
 
 ```sql
-NRQL> SELECT average(MyLastValue) FROM Metric TIMESERIES AUTO
+NRQL> SELECT average(MyLastValue) FROM Metric TIMESERIES
 ```
 
 #### Example
@@ -249,13 +249,13 @@ These metrics must be translated to New Relic's Count metric type. To record the
 To see a line chart detailing the sum of all the values of `MySum` over each timeslice use this NRQL query:
 
 ```sql
-NRQL> SELECT sum(MySum) FROM Metric TIMESERIES AUTO
+NRQL> SELECT sum(MySum) FROM Metric TIMESERIES
 ```
 
 To see a line chart detailing the average of all values of the `MyCount` and `MySum` metrics which share a common OpenCensus measure, use this NRQL query:
 
 ```sql
-NRQL> SELECT sum(MySum) / sum(MyCount) FROM Metric TIMESERIES AUTO
+NRQL> SELECT sum(MySum) / sum(MyCount) FROM Metric TIMESERIES
 ```
 
 ![sum-chart](imgs/sum.png)
@@ -388,7 +388,7 @@ previous_values = current_values
 To see a line chart with a line for each bucket use this NRQL query:
 
 ```sql
-NRQL> SELECT average(MyDistribution) FROM Metric TIMESERIES AUTO FACET 'upper_bound'
+NRQL> SELECT average(MyDistribution) FROM Metric TIMESERIES FACET 'upper_bound'
 ```
 
 #### Example
