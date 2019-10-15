@@ -41,16 +41,10 @@ Some common examples:
 * `class.name`
 * `method.name`
 
-### Errors
-
-#### Rationale
+#### Errors
 
 Many logging APIs accept an exception or error that is logged alongside a separate message. This exception is also 
 often encapsulated within the log event. These exceptions should be included in log message data.
-
-#### Attributes
-
-The attributes to include are all optional.
 
 | **Field** | **Type** | **Description** | 
 | --------- | -------- | --------------- |
