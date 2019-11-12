@@ -25,8 +25,8 @@ All spans will have the following common attributes on them:
 Other span field data maps over pretty directly.  The field on the left is the new relic
 span field name, and the right is where it is sourced:
 
-* `spanId`: `kamonSpan.id.string`
-* `traceId`: `kamonSpan.trace.id.string`
+* `spanId`: `kamonSpan.id`
+* `traceId`: `kamonSpan.trace.id`
 * `parentId` `kamonSpan.parentId`
 * `name`: `kamonSpan.operationName`
 * `timestamp`: Microseconds->millisecond conversion of `kamonSpan.from`
@@ -35,7 +35,7 @@ span field name, and the right is where it is sourced:
 
 Each span has the following attributes:
 
-* `span.kind`: `kamonSpan.kind.toString`
+* `span.kind`: `kamonSpan.kind`
 * `remoteEndpoint`: (if client span) `Endpoint{ipv4=<ip>, ipv6=<ip6>, port=<port>}`
 
 In addition, all `tags` and `metricTags` on the kamon span are sent as NR span attributes.
