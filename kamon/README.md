@@ -1,8 +1,12 @@
 # Kamon 
 
-New Relic [provides two reporters for Kamon telemetry](https://github.com/newrelic/kamon-newrelic-reporter):
+New Relic [provides two reporters](https://github.com/newrelic/kamon-newrelic-reporter) 
+for [Kamon telemetry](https://kamon.io/):
 * `NewRelicMetricsReporter`
 * `NewRelicSpanReporter`
+
+These reporters leverage the Kamon reporter/module API and integrate with
+data from the Kamon [kanela agent](https://github.com/kamon-io/kanela).
 
 ---
 # Spans
