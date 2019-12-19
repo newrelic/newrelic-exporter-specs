@@ -2,36 +2,52 @@
 
 Date: August, 2019
 
+This document describes the serialized format for New Relic Logs-in-Context. The intention of this
+document is to provide guidance to anyone writing a log extension for a language or framework not
+supported by the existing Logs-in-Context libraries.
 
-This document describes how to provide an extension to logging frameworks so that New
-Relic's logging platform can associate log statements with traces and entities.
+## Preconditions
 
-The infrastructure between the log output from the process running an agent and New
-Relic's log endpoint is out of scope for this spec.
+This document assumes the following things:
 
-Using this extension, it **MUST** be possible to configure an application's logging to
-emit log statements formatted as JSON objects, encoded in UTF-8, with one JSON object per
-line.
+1. [New Relic Logs](https://docs.newrelic.com/docs/logs/enable-logs/enable-logs/enable-new-relic-logs) is already enabled.
+2. The application is instrumented with a New Relic agent that is [capable of providing entity metadata](https://docs.newrelic.com/docs/logs/enable-logs/logs-context-agent-apis/annotate-logs-logs-context-using-apm-agent-apis).
+3. The application logs to a file, standard out, standard error, or other application stream that is
+read by a [New Relic log output plugin](https://docs.newrelic.com/docs/logs/enable-logs/enable-logs/enable-new-relic-logs#enable-logs).
 
-### Required fields
+Please refer to the links above for more information.
+
+## Stream format
+
+The output stream (the log file, or if console, standard output or standard error) from the application should 
+meet the following requirements:
+
+1. The stream **MUST** log one line per message, separating with the appropriate platform-specific line separator.
+2. The stream **MUST** log in JSON format, with one JSON object per message.
+3. The resulting object **MUST** be less than 4096 bytes.
+4. The stream **SHOULD** log in UTF-8; however, it's more important that the log forwarder is capable of 
+reading the output character set.
+
+## Required fields
 
 | key | type | description |
 | --- | ---- |----------- |
 | `message` | String | The rendered and internationalized string logged by the user. |
 | `timestamp` | 64 bit Integer |The time that the log statement was emitted, in milliseconds since the epoch. |
 
-In addition, all fields returned by the agent's public linking metadata accessor
+In addition, all fields returned by the agent's public [linking metadata accessor](https://docs.newrelic.com/docs/logs/enable-logs/logs-context-agent-apis/annotate-logs-logs-context-using-apm-agent-apis)
 **MUST** be included.
 
-### Common Optional Fields
+## Common Optional Fields
 
 Any fields present in the decorated logging framework's message abstraction should be
-considered for inclusion in the JSON output.  When extending a new logging framework, the
-PM for the language should decide which fields should be included.
+considered for inclusion in the JSON output.
 
 The naming of these fields should follow New Relic's [attribute naming guidelines](../Guidelines.md#naming-conventions).
 
-Some common examples:
+Here are some common examples. These examples may or may not apply in all situations. 
+These fields will all become queryable attributes on the log messages.
+
 * `log.level`
 * `logger.name`
 * `thread.id`
@@ -41,7 +57,7 @@ Some common examples:
 * `class.name`
 * `method.name`
 
-#### Errors
+### Errors
 
 Many logging APIs accept an exception or error that is logged alongside a separate message. This exception is also 
 often encapsulated within the log event. These exceptions should be included in log message data.
@@ -53,6 +69,9 @@ often encapsulated within the log event. These exceptions should be included in 
 | `error.stack` | String | The stack reported by the error, formatted natively for the language |
 
 ## Example
+
+*Note*: This example has been pretty-printed for clarity.  The actual log output should
+contain one JSON object per line.
 
 ```json
 {
@@ -89,5 +108,4 @@ often encapsulated within the log event. These exceptions should be included in 
 }
 ```
 
-The above example has been pretty-printed for clarity.  The actual log output should
-contain one JSON object per line.
+
