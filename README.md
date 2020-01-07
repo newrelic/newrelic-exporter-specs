@@ -20,6 +20,10 @@ provide adequate information so that they will be able to be queried by NRQL and
 
 Each subdirectory contains a specification for how the relevant exporter functions.
 
+#### OpenTelemetry
+Cross-language specifications for how we extract data from [OpenTelemetry](https://opentelemetry.io/) can be found in the
+[opentelemetry](opentelemetry) directory.
+
 #### OpenCensus
 Cross-language specifications for how we extract data from [OpenCensus](https://opencensus.io/) can be found in the
 [opencensus](opencensus) directory.
