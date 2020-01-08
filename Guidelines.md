@@ -32,7 +32,7 @@ represents, you might call that attribute `histogram.bucket`.
 ### Common patterns:
 * All metric names SHOULD start with the customer-provided metric name that the metric library provides to the exporter.
 * All metrics that share a common name MUST also have at least one variable attribute, so they can be independently aggregated by the back end.
-* All generated metrics/spans should include an attribute `instrumentation.provider` which identifies the source of the telemetry (for example, "dropwizard" or "prometheus")
+* All generated metrics/spans SHOULD include an attribute `instrumentation.provider` which identifies the source of the telemetry (for example, "dropwizard" or "prometheus")
 * All generated metrics/spans SHOULD include (if applicable) an attribute `instrumentation.name` which identifies what is being instrumented. (for example, "spring-framework" or "python-twisted")
 * All generated metrics/spans should include (in applicable) an attribute `instrumentation.version` which identifies the version of the instrumentation that generated the telemetry.
 * All generated metrics/spans should include an attribute `collector.name`, which identifies the particular exporter in question (for example, "newrelic-dropwizard-reporter", or "newrelic-opentelemetry-exporter")
