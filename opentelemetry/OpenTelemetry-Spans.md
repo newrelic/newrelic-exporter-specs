@@ -1,6 +1,6 @@
 # OpenTelemetry Span Exporters
 
-For OpenTelemetry exporters .
+For OpenTelemetry exporters.
 
 In general, generating New Relic spans from OpenTelemetry spans is quite straightforward.
 Here is the process:
