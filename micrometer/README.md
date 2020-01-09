@@ -84,7 +84,7 @@ The micrometer `Timer` is intended to track a large number of short running even
 We export it as a `Summary`:
 
 **Summary:**
-* name: "&lt;name>.summary", 
+* name: "&lt;name>", 
 * count: `timer.count()` (the total number of times stop() has been called on this timer)
 * total: the total time spent in all occurrences
 * min: `null`
@@ -104,7 +104,7 @@ The micrometer `FunctionTimer` is intended to track two monotonically increasing
 We export it a `Summary`:
 
 **Summary:**
-* name = "&lt;name>.summary", 
+* name = "&lt;name>", 
 * count: `functionTimer.count()`
 * total: `functionTimer.totalTime()`
 * min: `null`
