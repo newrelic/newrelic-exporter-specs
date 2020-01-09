@@ -50,12 +50,12 @@ Distribution Summary provides a summary of an event's distribution.
 
 We take a snapshot and marshall it as:
 
-* Snapshot `Count`
-  * name: "&lt;name>.count"
-* Snapshot max `Gauge` (for maximum event duration)
-  * name: "&lt;name>.max"
-* Snapshot total `Gauge` (for total event durations)
-  * name: "&lt;name>.total"
+* Snapshot `Summary`
+  * name: "&lt;name>.summary"
+  * count: `snapshot.count()`
+  * total: `snapshot.total()`
+  * min: `null`
+  * max: `snapshot.max()`
 
 We also generate one `Gauge` per snapshot percentile:
 * name: "&lt;name>.percentiles"
@@ -81,26 +81,16 @@ Aside from the basic `Meter` interface, these three do not share a common interf
 
 The micrometer `Timer` is intended to track a large number of short running events.
 
-We export it as a `Count` and 3 gauges:
+We export it as a `Summary`:
 
-**Count:**
-* name = "&lt;name>.count", 
-* value = the total number of times stop() has been called on this timer
-* (start/end times are tracked between previous export and current export wall time)
+**Summary:**
+* name: "&lt;name>.summary", 
+* count: `timer.count()` (the total number of times stop() has been called on this timer)
+* total: the total time spent in all occurrences
+* min: `null`
+* max: `timer.max()` the maximum time seen for a single event
 
-**Gauge 1:**
-* name = "&lt;name>.total_time", 
-* value = the total time of all occurrences 
-
-**Gauge 2:**
-* name = "&lt;name>.mean", 
-* value = the average/mean time of all timer events
-
-**Gauge 3:**
-* name = "&lt;name>.max", 
-* value = the maximum time of a single event
-
-All 4 metrics have these attributes:
+The summary has these attributes:
   * baseTimeUnit: (the timer's base time unit)
   * description: (the timer's description)
 
@@ -111,21 +101,16 @@ The framework also generates a `Gauge` for each histogram bucket.
 The micrometer `FunctionTimer` is intended to track two monotonically increasing values: count
 (the number of total invocations) and time (total time spent for all invocations).
 
-We export it a `Count` and 2 gauges:
+We export it a `Summary`:
 
-**Count:**
-* name = "&lt;name>.count", 
-* value = the total number of times the timer has executed
+**Summary:**
+* name = "&lt;name>.summary", 
+* count: `functionTimer.count()`
+* total: `functionTimer.totalTime()`
+* min: `null`
+* max: `null`
 
-**Gauge 1:**
-* name = "&lt;name>.total_time", 
-* value = the total time of all occurrences 
-
-**Gauge 2:**
-* name = "&lt;name>.mean", 
-* value = the average/mean of all events
-
-All 3 metrics have these attributes:
+The summary has these attributes:
   * baseTimeUnit: (the timer's base time unit)
   * description: (the timer's description)
 
