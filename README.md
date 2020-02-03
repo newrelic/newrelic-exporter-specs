@@ -14,6 +14,12 @@ The documentation in the subdirectories, of the specific exporters, however,
 are intended to be purely _descriptive_. They should reflect exactly what the current version of the exporter 
 actually does, even if it doesn't exactly follow the guidelines. 
 
+### Existing available exporter repositories
+
+We have repositories for several New Relic exporters already. The full table can be found in our Telemetry SDK section 
+on [docs.newrelic.com](https://docs.newrelic.com/docs/data-ingest-apis/get-data-new-relic/new-relic-sdks/telemetry-sdks-send-custom-telemetry-data-new-relic#external-data).  It includes at least one language versions 
+for all of the exporters listed in the Organization section below.
+
 ### Organization
 See the [Guidelines.md](Guidelines.md) for general principles on how to build exporters and
 provide adequate information so that they will be able to be queried by NRQL and visualizations can be created.
