@@ -16,8 +16,9 @@ actually does, even if it doesn't exactly follow the guidelines.
 
 ### Existing available exporter repositories
 
-We have repositories for several New Relic exporters already. The full table can be found at the [docs.newrelic.com](https://docs.newrelic.com/) site.  It 
-includes at least one language versions for all of the exporters listed in the Organization section below.
+We have repositories for several New Relic exporters already. The full table can be found in our Telemetry SDK section 
+on [docs.newrelic.com](https://docs.newrelic.com/docs/data-ingest-apis/get-data-new-relic/new-relic-sdks/telemetry-sdks-send-custom-telemetry-data-new-relic#external-data).  It includes at least one language versions 
+for all of the exporters listed in the Organization section below.
 
 ### Organization
 See the [Guidelines.md](Guidelines.md) for general principles on how to build exporters and
