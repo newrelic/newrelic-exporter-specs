@@ -17,7 +17,7 @@ This section describes Kamon spans that are sent to the
 ## Common attributes
 
 All spans will have the following common attributes on them:
-* `instrumentation.source`: "kamon-agent"
+* `instrumentation.provider`: "kamon-agent"
 * `service.name`: value comes from the config at `kamon.environment.service`
 
 ## Span field data
