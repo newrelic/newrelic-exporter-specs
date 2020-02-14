@@ -2,6 +2,26 @@
 
 This document describes behavior that is common to all New Relic exporters.
 
+<!-- TOC -->
+
+- [User-Agent values](#user-agent-values)
+- [Attributes](#attributes)
+    - [Instrumentation](#instrumentation)
+        - [`instrumentation.provider`](#instrumentationprovider)
+        - [`instrumentation.name`](#instrumentationname)
+        - [`instrumentation.version`](#instrumentationversion)
+    - [Collector](#collector)
+        - [`collector.name`](#collectorname)
+        - [`collector.version`](#collectorversion)
+    - [Source Kind](#source-kind)
+        - [`host.hostname`](#hosthostname)
+        - [`service.name`](#servicename)
+        - [`app.name`](#appname)
+            - [`device.model`](#devicemodel)
+        - [`db.name`](#dbname)
+
+<!-- /TOC -->
+
 ## User-Agent values
 
 Each exporter MUST report an identifying string and version as part of the `User-Agent` header when sending data to New Relic.
