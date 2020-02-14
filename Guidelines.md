@@ -28,14 +28,8 @@ In general, dots are used to separate modifiers and subjects. For example, if yo
 represents, you might call that attribute `histogram.bucket`.
 * When generating groups of metrics that should be visualized together, the metric names for that group SHOULD be the customer-provided metric named, suffixed with name for the type of group, separated by a `.`.
   For example, if you are generating a set of gauges that represent a histogram, you would suffix the customer-provided metric name with "`.buckets`".
-
-### Common patterns:
 * All metric names SHOULD start with the customer-provided metric name that the metric library provides to the exporter.
 * All metrics that share a common name MUST also have at least one variable attribute, so they can be independently aggregated by the back end.
-* All generated metrics/spans SHOULD include an attribute `instrumentation.provider` which identifies the source of the telemetry (for example, "dropwizard" or "prometheus")
-* All generated metrics/spans SHOULD include (if applicable) an attribute `instrumentation.name` which identifies what is being instrumented. (for example, "spring-framework" or "python-twisted")
-* All generated metrics/spans SHOULD include (in applicable) an attribute `instrumentation.version` which identifies the version of the instrumentation that generated the telemetry.
-* All generated metrics/spans SHOULD include an attribute `collector.name`, which identifies the particular exporter in question (for example, "newrelic-dropwizard-reporter", or "newrelic-opentelemetry-exporter")
 
 ### Simple types modeled with a single New Relic metric:
 #### Cumulative Counter
