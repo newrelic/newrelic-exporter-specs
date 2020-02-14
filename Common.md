@@ -47,7 +47,7 @@ The origins of telemetry exported to New Relic needs to be identifiable in order
 Being able to identify what generated, measured, collected, and transmitted telemetry to New Relic is essential to providing a curated customer experience.
 This section describes the attributes are used to identify these dimensions of the telemetry origins.
 
-The following table is an overview for quick reference all the attributes defined in the following sub-sections.
+The following table is an overview for quick reference of all the attributes defined in the following sub-sections.
 
 | Attribute | REQUIRED/RECOMMENDED/OPTIONAL |
 | --------- | ----------------------------- |
