@@ -28,7 +28,7 @@ In general, dots are used to separate modifiers and subjects. For example, if yo
 represents, you might call that attribute `histogram.bucket`.
 * When generating groups of metrics that should be visualized together, the metric names for that group SHOULD be the customer-provided metric named, suffixed with name for the type of group, separated by a `.`.
   For example, if you are generating a set of gauges that represent a histogram, you would suffix the customer-provided metric name with "`.buckets`".
-* All metric names SHOULD start with the customer-provided metric name that the metric library provides to the exporter.
+* All metric names SHOULD start with the instrumentation-provided or customer-provided metric name that the metric library provides to the exporter.
 * All metrics that share a common name MUST also have at least one variable attribute, so they can be independently aggregated by the back end.
 
 ### Simple types modeled with a single New Relic metric:
