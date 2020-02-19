@@ -66,7 +66,7 @@ The following table is an overview for quick reference of all the attributes def
 | `browserApp.name` | REQUIRED† |
 | `db.name` | REQUIRED† |
 
-†: applies only if annotating an applicable telemetry source.
+†: applies only if annotating an applicable source.
 See the related sub-section for more information.
 
 ### Instrumentation
