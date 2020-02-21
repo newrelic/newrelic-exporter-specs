@@ -71,11 +71,16 @@ See the related sub-section for more information.
 
 ### Instrumentation
 
-Instrumentation is the toolset used to make measurements of a system's state.
-The instruments making up the instrumentation take the form of library of code, a platform, or a coding language builtin.
-From the exporter's perspective, instrumentation is the thing that sends it measurements to export.
+Instruments are used to make measurements of a computing system.
+The collective application of a set of instruments to comprehensively monitor a computing system is the instrumentation.
 
-Including attributes to identify not only what instrumentation is used but also what code is being instrumented is crucial for interoperability between telemetry systems and the New Relic platform.
+For example:
+
+- Instrumentation for an HTTP library might be the dedicated code in the library that measure its performance (e.g. latency, throughput, errors).
+- Instrumentation for a cluster of Kubernetes pods might be the health check probes.
+- Instrumentation for a computer's CPU might be the embedded sensors measuring its physical state (e.g temperature, speed, power).
+
+Including attributes to identify what instrumentation is used is crucial for interoperability between telemetry systems and the New Relic platform.
 
 #### `instrumentation.provider`
 
