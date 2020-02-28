@@ -126,7 +126,7 @@ The following attributes are used to make this identification possible.
 
 #### `collector.name`
 
-If the exporter is transmitting to New Relic directly than all exported measurements SHOULD contain a `collector.name` attribute set to the name of the exporter, otherwise it SHOULD be omitted.
+If the exporter is transmitting to New Relic directly then all exported measurements SHOULD contain a `collector.name` attribute set to the name of the exporter, otherwise it SHOULD be omitted.
 
 Example values of this attribute are:
 
@@ -135,7 +135,7 @@ Example values of this attribute are:
 
 #### `collector.version`
 
-If the exporter is transmitting to New Relic directly than all exported measurements SHOULD contain a `collector.version` attribute set to the version of the exporter, otherwise it SHOULD be omitted.
+If the exporter is transmitting to New Relic directly then all exported measurements SHOULD contain a `collector.version` attribute set to the version of the exporter, otherwise it SHOULD be omitted.
 
 Example values of this attribute are:
 
