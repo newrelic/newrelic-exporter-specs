@@ -109,6 +109,8 @@ Example values of this attribute are:
 
 All exported measurements SHOULD contain an `instrumentation.version` attribute set to the version of the instrumentation if the instrumentation provider expose this information, otherwise it SHOULD be omitted.
 
+For libraries, this is the version of the _instrumentation_, not the version of the library being instrumented.
+
 Example values of this attribute are:
 
 * `v0.1.0`
