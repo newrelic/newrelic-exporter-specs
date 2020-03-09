@@ -6,7 +6,7 @@ In general, generating New Relic spans from OpenTelemetry spans is quite straigh
 Here is the process:
 
 1. For the `"collector.name"` attribute, use `"newrelic-opentelemetry-exporter"`
-1. For `"instrumentation.provider"`, use `"opentelemetry-<language>"`
+1. For `"instrumentation.provider"`, use `"opentelemetry"`
 1. Assign the span name, span id, parent span id (if present) and trace id to the New Relic span.
 1. Take all OpenTelemetry span attributes, and map them directly over to New Relic span attributes.
 1. If the OpenTelemetry span has a `status` that is not `OK`, and there is a status description available,
