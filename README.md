@@ -4,15 +4,13 @@
 With this documentation, we intend to document our general principles, and specific implementations of what we generally
 call "exporters". By this, we mean libraries or tools that extract data from existing telemetry systems, convert the
 data into a New Relic-friendly format, and send them to New Relic. In general, the implementations of these exporters
-will rely on our open-source SDKs to do the work of sending the data to New Relic.
+will rely on our open-source [SDKs](https://docs.newrelic.com/docs/data-ingest-apis/get-data-new-relic/new-relic-sdks/telemetry-sdks-send-custom-telemetry-data-new-relic) to do the work of sending the data to New Relic.
 
 ### Intent
 This documentation is divided into two sections, with two different intents. Documentation at the top level of this project
 is generally intended to be _prescriptive_. If you are designing an exporter, we strongly recommend following
 the [Guidelines.md](Guidelines.md), as it will support interoperability between the metrics exported from various metric libraries. 
-The documentation in the subdirectories, of the specific exporters, however, 
-are intended to be purely _descriptive_. They should reflect exactly what the current version of the exporter 
-actually does, even if it doesn't exactly follow the guidelines. 
+The documentation in the subdirectories, of the specific exporters, however, are intended to be purely _descriptive_. They should reflect exactly what the current version of the exporter actually does, even if it doesn't exactly follow the guidelines. 
 
 ### Existing available exporter repositories
 
