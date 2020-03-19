@@ -46,4 +46,4 @@ can be found in the [micrometer](micrometer) directory.
 Full details are available in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Licensing
-License details are in [LICENSE.md](LICENSE.md)..
+License details are in [LICENSE.md](LICENSE.md).
