@@ -6,6 +6,7 @@
 |Last Value|Gauge|Use current value|
 |Sum|Count|Current value minus previous value|
 |Distribution|Count|<ol><li>Sum: current sum minus previous sum</li><li>Each Bucket: current bucket value minus previous bucket value added to this value for all lower ranged buckets</li></ol>|
+|Distribution|Summary|<ol><li>Count: current count minus previous count</li><li>Sum: current sum minus previous sum</li><li>Min: null</li><li>Max: null</li></ol>|
 
 ## Metric Identities
 
@@ -360,6 +361,12 @@ New Relic Metric
 ## Distribution
 
 These metrics give details about the distribution of the recorded values. Comparison must be done on these metrics before sending.
+
+These metrics will be recorded as two New Relic metric types: a Summary, and a set
+of Counts.
+
+When recorded as a New Relic Summary, the min and max values will be null and
+the count and sum values will be deltas since the recording of the metric.
 
 These metrics will be deconstructed and translated into multiple of New Relic's Count metric type.
 
