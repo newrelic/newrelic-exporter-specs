@@ -68,7 +68,7 @@ When exporting this metric type the following guidelines MUST be followed.
     * This metric MUST have a name with a suffix of "`.sum`".
   * If implementation of the bucketing algorithm is left up to the exporter, then histograms SHOULD be constructed as [cumulative histograms](https://en.wikipedia.org/wiki/Histogram#Cumulative_histogram).
 
-    This means bucket vaules represent the cumulative number of observations in all of the buckets up to the specified bucket.
+    This means bucket values represent the cumulative number of observations in all of the buckets up to the specified bucket.
 
 ##### Notes
 
