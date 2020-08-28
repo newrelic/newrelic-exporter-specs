@@ -46,7 +46,7 @@ A full `User-Agent` example might look like `NewRelic-Python-TelemetrySDK/0.2.3 
 ## Attributes
 
 The origins of measurements exported to New Relic needs to be identifiable in order for them to be useful.
-Identify what generated, measured, collected, and transmitted measurements to New Relic is essential in providing the curated experience customers expect.
+Identifying what generated, measured, collected, and transmitted measurements to New Relic is essential in providing the curated experience customers expect.
 This section describes the attributes that are used to serve this purpose.
 
 The following table is an overview for quick reference of all the attributes defined in the following sub-sections.
