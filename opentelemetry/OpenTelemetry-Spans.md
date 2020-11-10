@@ -10,7 +10,7 @@ Here is the process:
 1. Assign the span name, span id, parent span id (if present) and trace id to the New Relic span.
 1. Take all OpenTelemetry span attributes, and map them directly over to New Relic span attributes.
 1. The OpenTelemetry span status is comprised of a status code and optional description. The status
-code is `Unset`, `Ok`, or `Error`. If the status code is `Ok` or `Error` then add an `otel.status_code`
+code is `Unset`, `Ok`, or `Error`. If the status code is not `Unset`, then add an `otel.status_code`
 attribute and set it to the value of the status code. If the status has a description then add an
 `otel.status_description` attribute and set it to the value of the description.
 1. If there is a Resource associated with the Span, take all of the Resource's labels and add them as
