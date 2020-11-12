@@ -9,8 +9,10 @@ Here is the process:
 1. For `"instrumentation.provider"`, use `"opentelemetry"`
 1. Assign the span name, span id, parent span id (if present) and trace id to the New Relic span.
 1. Take all OpenTelemetry span attributes, and map them directly over to New Relic span attributes.
-1. If the OpenTelemetry span has a `status` that is not `OK`, and there is a status description available,
-add an `"error.message"` attribute that contains the status description.
+1. The OpenTelemetry span status is comprised of a status code and optional description. The status
+code is `Unset`, `Ok`, or `Error`. If the status code is not `Unset`, then add an `otel.status_code`
+attribute and set it to the value of the status code. If the status code is not `Unset` and the status has a description then add an
+`otel.status_description` attribute and set it to the value of the description.
 1. If there is a Resource associated with the Span, take all of the Resource's labels and add them as
 span attributes.
 1. If there is instrumentation library information associated with the span,
