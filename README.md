@@ -1,3 +1,5 @@
+<a href="https://opensource.newrelic.com/oss-category/#community-project"><picture><source media="(prefers-color-scheme: dark)" srcset="https://github.com/newrelic/opensource-website/raw/main/src/images/categories/dark/Community_Project.png"><source media="(prefers-color-scheme: light)" srcset="https://github.com/newrelic/opensource-website/raw/main/src/images/categories/Community_Project.png"><img alt="New Relic Open Source community project banner." src="https://github.com/newrelic/opensource-website/raw/main/src/images/categories/Community_Project.png"></picture></a>
+
 # New Relic exporter specifications
 
 ### Purpose
@@ -42,8 +44,18 @@ The detailed description of how the [New Relic Micrometer registry](https://gith
 converts [Micrometer metrics](https://micrometer.io/) into New Relic dimensional metrics
 can be found in the [micrometer](micrometer) directory.
 
+### Support
+
+For support on this project, visit New Relic's [Explorers Hub](https://forum.newrelic.com/s/). 
+
 ### Contributing
 Full details are available in [CONTRIBUTING.md](CONTRIBUTING.md).
+
+**A note about vulnerabilities**
+
+As noted in our [security policy](../../security/policy), New Relic is committed to the privacy and security of our customers and their data. We believe that providing coordinated disclosure by security researchers and engaging with the security community are important means to achieve our security goals.
+
+If you believe you have found a security vulnerability in this project or any of New Relic's products or websites, we welcome and greatly appreciate you reporting it to New Relic through [HackerOne](https://hackerone.com/newrelic).
 
 ### Licensing
 License details are in [LICENSE.md](LICENSE.md).
