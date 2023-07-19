@@ -44,6 +44,10 @@ The detailed description of how the [New Relic Micrometer registry](https://gith
 converts [Micrometer metrics](https://micrometer.io/) into New Relic dimensional metrics
 can be found in the [micrometer](micrometer) directory.
 
+### Support
+
+For support on this project, visit New Relic's [Explorers Hub](https://forum.newrelic.com/s/). 
+
 ### Contributing
 Full details are available in [CONTRIBUTING.md](CONTRIBUTING.md).
 
